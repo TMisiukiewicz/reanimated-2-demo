@@ -7,6 +7,7 @@ import DragAndSnap from "./components/DragAndSnapExample";
 import ChatHeads from "./components/ChatHeadsExample";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import ScrollExample from "./components/ScrollEventExample";
+import TransitionsExample from "./components/TransitionsExample";
 
 const Stack = createStackNavigator();
 
@@ -17,7 +18,7 @@ const NavButton = ({ screen }: { screen: string }) => {
       onPress={() => navigation.navigate(screen)}
       style={styles.button}
     >
-      <Text>{screen} Example</Text>
+      <Text style={styles.buttonText}>{screen} Example</Text>
     </TouchableOpacity>
   );
 };
@@ -28,6 +29,7 @@ const HomeScreen = () => {
       <NavButton screen="DragAndSnap" />
       <NavButton screen="ChatHeads" />
       <NavButton screen="ScrollEvent" />
+      <NavButton screen="Transitions" />
     </View>
   );
 };
@@ -40,6 +42,7 @@ export default function App() {
         <Stack.Screen name="DragAndSnap" component={DragAndSnap} />
         <Stack.Screen name="ChatHeads" component={ChatHeads} />
         <Stack.Screen name="ScrollEvent" component={ScrollExample} />
+        <Stack.Screen name="Transitions" component={TransitionsExample} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -53,6 +56,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   button: {
-    backgroundColor: "blue",
+    backgroundColor: "#e74c3c",
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 5,
+    marginBottom: 8,
+  },
+  buttonText: {
+    color: "white",
   },
 });
